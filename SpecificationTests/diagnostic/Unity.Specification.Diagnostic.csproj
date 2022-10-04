@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Unity Container Specification Tests</Description>
+    <Copyright>Copyright © .NET Foundation and Contributors. All Rights Reserved</Copyright>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>package.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Container\src\Unity.Container.csproj" />
+    <ProjectReference Include="..\optimized\Unity.Specification.csproj" />
+  </ItemGroup>
+
+</Project>

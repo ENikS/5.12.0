@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <log4net>..\..\..\..\Log4net\src\Unity.log4net.csproj</log4net>
+  </PropertyGroup>
+
+
+  <ItemGroup Condition="Exists('$(log4net)')">
+    <ProjectReference Include="$(log4net)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(log4net)')">
+    <PackageReference Include="Unity.log4net" Version="1.1.*" />
+  </ItemGroup>
+
+</Project>

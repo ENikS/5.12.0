@@ -1,0 +1,18 @@
+<Project>
+
+  <!-- Import the Arcade SDK -->
+  <!-- <Import Project="Sdk.props" Sdk="Microsoft.DotNet.Arcade.Sdk" /> -->
+
+
+  <!-- Language Features -->
+
+  <PropertyGroup>
+    <!-- <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+    <AnalysisLevel>preview</AnalysisLevel>
+    <ImplicitUsings>enable</ImplicitUsings> -->
+    <TargetFrameworks>net472</TargetFrameworks>
+  </PropertyGroup>
+
+
+</Project>

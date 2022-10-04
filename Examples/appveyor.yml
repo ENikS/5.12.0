@@ -1,0 +1,11 @@
+image: Visual Studio 2019
+configuration: Release
+platform: Any CPU
+
+before_build:
+- nuget restore
+
+build:
+  project: examples.sln
+  parallel: true
+  verbosity: minimal

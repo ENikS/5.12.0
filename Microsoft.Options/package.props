@@ -1,0 +1,12 @@
+<Project>
+
+  <PropertyGroup>
+    <Version>5.10.0</Version>
+    <PackageReleaseNotes>Unity extension for Microsoft.Extensions.Options</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UnityContainerVersion>5.11.*</UnityContainerVersion>
+  </PropertyGroup>
+
+</Project>

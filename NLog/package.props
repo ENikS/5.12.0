@@ -1,0 +1,13 @@
+<Project>
+
+  <PropertyGroup>
+    <Version>5.11.1</Version>
+    <PackageReleaseNotes>This package is distributed as .NET 4.0, 4.5, 4.6, 4.7 package.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UnityAbstractionsVersion>5.11.*</UnityAbstractionsVersion>
+    <UnityContainerVersion>5.11.*</UnityContainerVersion>
+  </PropertyGroup>
+
+</Project>

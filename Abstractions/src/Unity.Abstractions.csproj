@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Defaults -->
+
+  <PropertyGroup>
+    <Version Condition="'$(Version)' == ''">5.12.0</Version>
+    <RootNamespace>Unity</RootNamespace>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- Package Info -->
+  
+  <PropertyGroup>
+    <PackageId>Unity.Abstractions</PackageId>
+    <Description>Unity Container Public Abstractions</Description>
+    <Copyright>Copyright © .NET Foundation and Contributors. All Rights Reserved</Copyright>
+    <PackageProjectUrl>https://github.com/unitycontainer</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/unitycontainer/abstractions</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/unitycontainer/abstractions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://avatars1.githubusercontent.com/u/12849707</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <Authors>Unity Open Source Project</Authors>
+    <Company>Unity Open Source Project</Company>
+    <PackageTags>Unity Container unitycontainer Microsoft.Practices.Unity IoC</PackageTags>
+  </PropertyGroup>
+
+  <!-- Strong Name Signature -->
+
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>package.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <!-- Configurations -->
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NoWarn>$(NoWarn);NETSDK1138</NoWarn> <!-- Out Of Support              -->
+    <NoWarn>$(NoWarn);NU3005</NoWarn>     <!-- Invalid Header in System.xx -->
+    <DebugType>Portable</DebugType>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <NoWarn>$(NoWarn);NETSDK1138</NoWarn> <!-- Out Of Support              -->
+    <NoWarn>$(NoWarn);NU3005</NoWarn>     <!-- Invalid Header in System.xx -->
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+  
+  <!-- Exclusions -->
+
+  <ItemGroup Condition="'$(TargetFramework)' != '' AND '$(TargetFramework)' != 'netstandard1.0' ">
+    <Compile Remove="Lifetime\Managers\ConcurrentDictionary.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != '' AND $(TargetFramework.StartsWith('netcoreapp'))">
+    <Compile Remove="Exceptions\ResolutionFailedException.Desktop.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != '' AND $(TargetFramework.StartsWith('netstandard'))">
+    <Compile Remove="Exceptions\ResolutionFailedException.Desktop.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+    <Compile Remove="Abstracts\IUnityContainerAsync.cs" />
+    <Compile Remove="Extensions\Container\UnityContainerAsync.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Unity.Abstractions.csproj.DotSettings" />
+  </ItemGroup>
+
+  <!-- Package References -->
+
+  <ItemGroup>
+    <PackageReference Condition="'$(TargetFramework)' != 'net40'" Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.4</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Symbols -->
+  
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Release Notes -->
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="../RELEASE-NOTES.txt">
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
+    </ReadLinesFromFile>
+    <PropertyGroup>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
+
+</Project>

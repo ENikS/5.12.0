@@ -1,0 +1,13 @@
+<Project>
+
+  <PropertyGroup>
+    <Version>5.11.1</Version>
+    <PackageReleaseNotes>This package is compatible with .NET Standard 2.0, .Net Core 2.9, and .NET Framework 4.5, 4.6, 4.7</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UnityAbstractionsVersion>5.11.*</UnityAbstractionsVersion>
+	<UnityContainerVersion>5.11.*</UnityContainerVersion>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Unity</id>
+    <version>5.11.9</version>
+    <authors>Unity Container Project</authors>
+    <owners>Unity Container Project</owners>
+    <licenseUrl>https://github.com/unitycontainer/unity/blob/v5.x/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/unitycontainer/unity</projectUrl>
+    <iconUrl>https://avatars1.githubusercontent.com/u/12849707</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package contains Unity Container and Abstractions libraries as a single package.</description>
+    <releaseNotes>Entire Unity Library as single package. This is a convenience package containing both Unity.Abstractions and Unity.Container assemblies. This package is distributed for these who do now wish to separate declarations and implementation. </releaseNotes>
+    <copyright>Copyright © .NET Foundation and Contributors. All Rights Reserved</copyright>
+    <tags>Unity Container unitycontainer Microsoft.Practices.Unity IoC</tags>
+    <dependencies>
+      <group targetFramework=".NET4.0">
+      </group>
+      <group targetFramework=".NET4.5">
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NET4.6">
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NET4.7">
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp1.0">
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp2.0">
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.0">
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Container\src\bin\Release\**\Unity.Abstractions.dll" target="lib" />
+    <file src="Container\src\bin\Release\**\Unity.Abstractions.pdb" target="lib" />
+    <file src="Container\src\bin\Release\**\Unity.Container.dll"    target="lib" />
+    <file src="Container\src\bin\Release\**\Unity.Container.pdb"    target="lib" />
+  </files>
+</package>

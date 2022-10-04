@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+    <NLog>..\..\..\..\NLog\src\Unity.NLog.csproj</NLog>
+  </PropertyGroup>
+
+
+  <ItemGroup Condition="Exists('$(NLog)')">
+    <ProjectReference Include="$(NLog)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(NLog)')">
+    <PackageReference Include="Unity.NLog" Version="1.1.*" />
+  </ItemGroup>
+
+</Project>
